@@ -27,7 +27,7 @@ export class User extends Model<InferAttributes<User>, InferCreationAttributes<U
   declare profileImage?: NonAttribute<ProfileImage>;
 
   generateHash(password: string): string {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(1));
   }
   validPassword(password: string): boolean {
     return bcrypt.compareSync(password, this.getDataValue("password"));
